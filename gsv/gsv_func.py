@@ -72,7 +72,22 @@ def create_sine_int(f0,T):
 	ntmax = (int)(T/dt)
 	sine[ntmax:-1] = 0.0
 	
-	return time, sine	
+	return time, sine
+
+def create_sweep(f1,f2,T):
+	
+	w1 = 2 * np.pi * f1             # circular frequency w1
+	w2 = 2 * np.pi * f2             # circular frequency w2
+	tmax = 10.                       # set maximum time to 2 s
+	dt = tmax / 8000                # sampling interval is 1/8000 of tmax
+	nt = (int) (tmax/dt)            # number of time samples 
+	time = np.arange(0,nt*dt,dt)    # define time vector
+	
+	# define sweep
+	k = w1 + ((w2-w1) * time / T)
+	sweep = np.sin(k * time)        # calculate sine function
+		
+	return time, sweep
 	
 def create_rectf(T):
 
@@ -118,6 +133,28 @@ def draw_func(time,f,title,xlabel,ylabel):
 	plt.ylabel(ylabel)
 	plt.grid()
 	#plt.show()
+	
+def draw_func1(time,f,title,xlabel,ylabel):
+	
+	# plot time series
+	plt.plot(time, f, 'b-') 
+	plt.title(title)
+	plt.xlabel(xlabel)
+	plt.ylabel(ylabel)
+	plt.grid()
+	#plt.show()	
+	
+def draw_func2(time,f,f1,title,xlabel,ylabel):
+	
+	# plot time series
+	plt.plot(time, f1/np.amax(f1), 'r-',lw=5,label='Spike-Response')
+	plt.plot(time, f/np.amax(f), 'b-',label='KKF(vibro,sweep)')  
+	plt.title(title)
+	plt.xlabel(xlabel)
+	plt.ylabel(ylabel)
+	plt.grid()
+	plt.legend()
+	#plt.show()		
 	
 def comp_AKF_rect(lags,AKF,T,title,xlabel,ylabel):
 	
@@ -240,8 +277,37 @@ def comp_AKF_sine_1(lags,AKF,f0,T,title,xlabel,ylabel):
 	plt.xlabel(xlabel)
 	plt.ylabel(ylabel)	
 	plt.legend()
-	plt.grid()		
+	plt.grid()
 
+def comp_AKF_sweep(lags,AKF,f1,f2,T,title,xlabel,ylabel):
+	
+	# Analytical AKF 
+	w1 = 2. * np.pi * f1
+	w2 = 2. * np.pi * f2
+	k = (f2 - f1) * lags 
+	k1 = (f2 + f1) * lags 
+	AKF_an = (np.sin(k) / k) * np.cos(k1)
+	
+	# plot AKF
+	plt.plot(lags, AKF, 'b-',lw=3,label='numerisch')
+	plt.plot(lags, AKF_an, 'r--',lw=3,label='analytisch')	
+	plt.title(title)
+	plt.xlabel(xlabel)
+	plt.ylabel(ylabel)	
+	plt.legend()
+	plt.grid()	
+
+def comp_AKF_sweep1(lags,AKF,AKF1,title,xlabel,ylabel):
+	
+	# plot AKF
+	plt.plot(lags, AKF, 'b-',lw=1,label='Sweep [f1 = 10 Hz, f2 = 100 Hz]')
+	plt.plot(lags, AKF1, 'r-',lw=1,label='Sweep [f1 = 10 Hz, f2 = 40 Hz]')	
+	plt.title(title)
+	plt.xlabel(xlabel)
+	plt.ylabel(ylabel)	
+	plt.legend()
+	plt.grid()		
+	
 def comp_AKF_wnoise(lags,AKF,std,title,xlabel,ylabel):
 	
 	# Analytical AKF
@@ -267,5 +333,45 @@ def draw_corr(time,f,f1,title,xlabel,ylabel,rho):
 	plt.title(title1)
 	plt.xlabel(xlabel)
 	plt.ylabel(ylabel)	
+	plt.grid()	
+
+def plot_spec(time,signal,fmax,title,xlabel,ylabel):
+	
+	spec = np.fft.fft(signal)   # fft of signal
+	dt = time[1] - time[0]
+	freq = np.fft.fftfreq(spec.size, d = dt) # frequency axis
+	
+	# plot time series
+	plt.plot(np.abs(freq), np.abs(spec), 'r-',lw=3)	
+	plt.title(title)
+	plt.xlabel(xlabel)
+	plt.ylabel(ylabel)	
+	plt.xlim(0,fmax)
 	plt.grid()
+	
+def create_spike_3_layers(time):	
+	
+	t_r1 = 0.3325 # traveltime of 1st reflection
+	t_r2 = 0.7325 # traveltime of 2nd reflection
+	
+	t_rr1 = 0.665 # multiple of 1st reflection
+	t_rr2 = 1.465 # multiple of 2nd reflection
+	
+	# corresponding amplitudes of Greens function
+	a_r1 = 8.772e-5
+	a_r2 = 0.0001425
+	a_rr1 = -1.649e-6
+	a_rr2 = -1.015e-5
+	
+	dt = time[1] - time[0] # define dt
+	nt = (int)(len(time))  # number of time samples
+	green = np.zeros(nt)   # initialize Greens function
+	
+	# calculate Greens function
+	green[(int)(t_r1/dt)] = a_r1 
+	green[(int)(t_r2/dt)] = a_r2
+	green[(int)(t_rr1/dt)] = a_rr1
+	green[(int)(t_rr2/dt)] = a_rr2
+	
+	return green
 	

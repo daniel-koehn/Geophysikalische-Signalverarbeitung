@@ -26,6 +26,10 @@ einer Zeitreihe lassen sich mit der Autokorrelationsfunktion (AKF) identifiziere
 Nachdem wir die KKF und AKF als Maße für die Korrelation zwischen Zeitreihen gegenüber einer Zeitverschiebung eingeführt hatten, soll im folgenden die AKF und deren Eigenschaften anhand einiger Beispiele 
 illustriert werden.
 
+## [Vorlesung 4](http://nbviewer.ipython.org/urls/github.com/daniel-koehn/Geophysikalische-Signalverarbeitung/tree/master/4_Korrelation_vibroseis_match_filter.ipynb): Vibroseismik und Korrelationsfilter
+
+Als erstes Anwendungsbeispiel der AKF und KKF in der Geophysik analysieren wir das Konzept des Vibroseismikverfahrens anhand von synthetischen Zeitreihen und Felddaten.
+
 Im Verlauf der Vorlesung werde ich weitere Notebooks hinzufügen.
 
 Daniel Köhn
