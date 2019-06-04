@@ -282,15 +282,13 @@ def comp_AKF_sine_1(lags,AKF,f0,T,title,xlabel,ylabel):
 def comp_AKF_sweep(lags,AKF,f1,f2,T,title,xlabel,ylabel):
 	
 	# Analytical AKF 
-	w1 = 2. * np.pi * f1
-	w2 = 2. * np.pi * f2
-	k = (f2 - f1) * lags 
-	k1 = (f2 + f1) * lags 
+	k = np.pi * (f2 - f1) * lags 
+	k1 = np.pi * (f2 + f1) * lags
 	AKF_an = (np.sin(k) / k) * np.cos(k1)
 	
 	# plot AKF
 	plt.plot(lags, AKF, 'b-',lw=3,label='numerisch')
-	plt.plot(lags, AKF_an, 'r--',lw=3,label='analytisch')	
+	plt.plot(lags, AKF_an, 'r-',lw=2,label='analytisch')	
 	plt.title(title)
 	plt.xlabel(xlabel)
 	plt.ylabel(ylabel)	
