@@ -30,8 +30,25 @@ illustriert werden.
 
 Als erstes Anwendungsbeispiel der AKF und KKF in der Geophysik analysieren wir das Konzept des Vibroseismikverfahrens anhand von synthetischen Zeitreihen und Felddaten.
 
+## [Vorlesung 5](http://nbviewer.ipython.org/urls/github.com/daniel-koehn/Geophysikalische-Signalverarbeitung/tree/master/5_Korrelation_AKF_seismic_trace_ghost.ipynb): AKF einer seismischen Spur
+
+Als elementares, geophysikalisches Anwendungsbeispiel der Autokovarianzfunktion betrachten wir die AKF einer seismischen Spur mit bzw. ohne Ghost und diskutieren deren 
+Eigenschaften im Frequenzbereich.
+
+## [Vorlesung 6](http://nbviewer.ipython.org/urls/github.com/daniel-koehn/Geophysikalische-Signalverarbeitung/tree/master/6_Korrelation_Multiplets_detection.ipynb): Detektion von Multiplets
+
+Multiplets sind seismische Ereignisse mit gleicher bzw. ähnlicher Wellenform. Treten an einer Station Multiplets auf, können die relativen Einsatzzeiten zwischen zwei Ereignissen 
+mittels Kreuzkorrelation bestimmt werden.
+
+## [Vorlesung 7](http://nbviewer.ipython.org/urls/github.com/daniel-koehn/Geophysikalische-Signalverarbeitung/tree/master/7_Korrelation_Phase_vel_estimation_of_surface_waves.ipynb): Bestimmung der Phasengeschwindigkeit der Grundmode von Oberflächenwellen
+
+Die Dispersion von Oberflächenwellen läßt sich theoretisch durch eine Frequenzabhängigkeit der Phasengeschwindigkeit erklären. Da tieffrequente Anteile der Oberflächenwelle tiefer 
+in den Untergrund eindringen, als höherfrequente, liefert das Phasengeschwindigkeits-Frequenzspektrum Informationen über die tiefenabhängige Geschwindigkeitsverteilung in der 
+Erde. Eine Möglichkeit zur Bestimmung von Dispersionskurven basiert auf der KKF von Seismogrammen, die an zwei unterschiedlichen Stationen aufgezeichnet wurden. Wir diskutieren 
+die Berechnung und Inversion von Dispersionskurven für Europa, den Mittelmeerraum und den Mittleren Osten im Detail.
+
 Im Verlauf der Vorlesung werde ich weitere Notebooks hinzufügen.
 
 Daniel Köhn
 
-Kiel, 23.05.2019
+Kiel, 18.06.2019
