@@ -47,6 +47,18 @@ in den Untergrund eindringen, als höherfrequente, liefert das Phasengeschwindig
 Erde. Eine Möglichkeit zur Bestimmung von Dispersionskurven basiert auf der KKF von Seismogrammen, die an zwei unterschiedlichen Stationen aufgezeichnet wurden. Wir diskutieren 
 die Berechnung und Inversion von Dispersionskurven für Europa, den Mittelmeerraum und den Mittleren Osten im Detail.
 
+## [Vorlesung 8](http://nbviewer.ipython.org/urls/github.com/daniel-koehn/Geophysikalische-Signalverarbeitung/tree/master/8_Korrelation_Polarizationanalysis.ipynb): Polarisationsanalyse an einer 3-Komponentenstation
+
+Aus der Analyse von 3-Komponentendaten lassen sich Einfallswinkel unterschiedlicher seismischer Phasen relativ zu einer Station, sowie deren Polarisationseigenschaften berechnen. 
+Diese Informationen können genutzt werden, um Aussagen über die seismische Anisotropie im Untergrund in unmittelbarer Umgebung der Station abzuleiten. In Kombination mit 
+Laufzeitunterschieden verschiedener Wellenphasen, z.B. P- und S-Wellen, lassen sich seismische Quellen grob lokalisieren.
+
+## [Vorlesung 9](http://nbviewer.ipython.org/urls/github.com/daniel-koehn/Geophysikalische-Signalverarbeitung/tree/master/9_Korrelation_Ambient_Noise.ipynb): Ambient Noise
+
+Die meisten seismische Methoden nutzen aktive Quellen mit hohem Signal-zu-Rausch Verhältnis, um Abbildungen des Untergrundes zu erzeugen. Neben den aktiven Verfahren läßt sich jedoch 
+auch das Hintergrundrauschen als passive seismische Quelle nutzen. Durch Korrelation und Stapelung von langen Noisezeitreihen zweier Stationen, läßt sich der Green'sche Tensor bestimmen. 
+Genau wie bei aktiven seismischen Daten, können seismische Abbildungs- und Inversionsverfahren auf Ambient Noise Daten angewendet werden.
+
 Im Verlauf der Vorlesung werde ich weitere Notebooks hinzufügen.
 
 Daniel Köhn
