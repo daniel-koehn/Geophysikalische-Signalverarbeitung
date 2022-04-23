@@ -9,6 +9,12 @@ Die Inhalte der folgenden Jupyter Notebooks können gemäß der CC BY-NC-SA 4.0 
 
 [https://creativecommons.org/licenses/by-nc-sa/4.0/](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
+# Kapitel 2: Begriffe & Definitionen 
+
+## [Vorlesung 1](http://nbviewer.ipython.org/urls/github.com/daniel-koehn/Geophysikalische-Signalverarbeitung/tree/master/1_Stochastik_Statistik_Wuerfel.ipynb): Stochastik und Statistik eines 6-seitigen Würfels
+
+In der Vorlesung hab ich einige Grundbegriffe der Stochastik am Beispiel des 6-seitigen Würfels eingeführt. In diesem Notebook vergleiche ich das theoretische Wahrscheinlichkeitsmodell mit einem realen Würfelexperiment.
+
 # Kapitel 8: Korrelation von Signalen
 
 ## [Vorlesung 1](http://nbviewer.ipython.org/urls/github.com/daniel-koehn/Geophysikalische-Signalverarbeitung/tree/master/1_Korrelation_corr_coeff.ipynb): Korrelationskoeffizient
